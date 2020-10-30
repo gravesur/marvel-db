@@ -13,8 +13,8 @@ const Footer = () => {
               <a href="http://marvel.com" className="link text-white ml-3" >
                 Data provided by Marvel. © 2019 MARVEL
               </a> 
-              
-              <Link to="#" className="text-white ml-3" >
+
+              <Link to="#" className="link text-white ml-3" >
                 Conditions
               </Link>
             </p>

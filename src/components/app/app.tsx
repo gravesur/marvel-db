@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import Navbar from '../navbar/navbar';
 import HomePage from '../home-page/home-page';
-// import CharactersPage from '../characters-page';
-// import ComicsPage from '../comics-page';
-// import EventsPage from '../events-page';
-// import SeriesPage from '../series-page';
+import CharactersPage from '../characters-page/characters-page';
+import ComicsPage from '../comics-page/comics-page';
+import EventsPage from '../events-page/events-page';
+import SeriesPage from '../series-page/series-page';
 import Footer from '../footer/footer';
 
 const App = () => {
@@ -17,6 +17,11 @@ const App = () => {
 
         <div className="container my-5">
           <Route path="/" component={HomePage} exact />
+          <Route path="/characters" component={CharactersPage} />
+          <Route path="/comics" component={ComicsPage} />
+          <Route path="/events" component={EventsPage} />
+          <Route path="/series" component={SeriesPage} />
+          <Redirect to="/" />
         </div>
 
         <Footer />
