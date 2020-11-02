@@ -27,11 +27,8 @@ const ItemsListContainer = (View: any, getData: any) => {
       });
     }
 
-    render() {
-      //console.log(this.props);
-      
+    render() {   
       const { data, loading } = this.props;
-      //console.log(loading);
       
       if (loading) {
         return (

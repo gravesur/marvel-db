@@ -20,17 +20,12 @@ interface ItemDetailsContainerProps {
 
 const itemDetailsContainer = (View: any) => {
   return class extends Component<ItemDetailsContainerProps> {
-    componentDidMount() {
-      console.log('COMPONENT DID MOUNT FIRED!');
-      //console.log(this.props);
-      
+    componentDidMount() {  
       //this.updateItem();
     }
   
     
-    componentDidUpdate(prevProps: any) {
-      console.log('COMPONENT DID UPDATE FIRED!');
-      
+    componentDidUpdate(prevProps: any) {  
       if (this.props.itemId !== prevProps.itemId) {
         this.props.itemRequested();
 
@@ -124,12 +119,3 @@ export const SeriesDetails = connect(mapStateToProps, {
 })(itemDetailsContainer(ItemDetails));
 
 export default itemDetailsContainer;
-
-/*
-export {
-  CharacterDetails,
-  ComicsDetails,
-  EventDetails,
-  SeriesDetails
-};
-*/

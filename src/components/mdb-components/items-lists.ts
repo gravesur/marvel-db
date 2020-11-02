@@ -62,12 +62,3 @@ export const SeriesList = connect(mapStateToProps, {
   dataRequested,
   onItemSelected: (id: number) => listItemSelected(id)
 })(ItemsListContainer(ItemsList, getAllSeries));
-
-/*
-export {
-  CharactersList,
-  ComicsList,
-  EventsList,
-  SeriesList
-};
-*/

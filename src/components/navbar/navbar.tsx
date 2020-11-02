@@ -14,7 +14,9 @@ const Navbar = (props: NavbarProps) => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-danger sticky-top">
       <div className="container my-1">
-        <Link to="/" className="navbar-brand">MARVEL</Link>
+        <Link to="/" className="navbar-brand">
+          MARVEL
+        </Link>
         <button className="navbar-toggler" data-toggle="collapse" 
           data-target="#navbarCollapse">
           <span className="navbar-toggler-icon"></span>

@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default class MarvelAPIServise {
-
   _urlBase = 'https://gateway.marvel.com/v1/public';
   _apikey = 'bee01df4612be419e6981380fc9143ed';
   _hash = '6d61ee38cc5b15a56375066f84aa3be4';
@@ -13,7 +12,7 @@ export default class MarvelAPIServise {
       return results;
       
     } catch (err) {
-      alert(err);
+      console.log(err);
     }
   }
   
