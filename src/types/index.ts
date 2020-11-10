@@ -1,18 +1,18 @@
-interface Character {
-  id: any,
-  name: any,
-  description: any,
-  img: any,
-  comics: any,
-  overview: any
+export interface Character {
+  id: number;
+  name: string;
+  description: string;
+  img: string;
+  comics: string;
+  overview: string;
 }
 
-interface EventSeriesComics {
-  id: any,
-  title: any,
-  description: any,
-  img: any,
-  overview: any
+export interface EventSeriesComics {
+  id: number;
+  title: string;
+  description: string;
+  img: string;
+  overview: string;
 }
 
 export type Item = Character | EventSeriesComics;

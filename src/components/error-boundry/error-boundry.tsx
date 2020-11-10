@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Dispatch } from 'redux';
 
 import { dataError } from '../../actions';
+import { StoreState } from '../../reducers';
 
 import image from './thanos.jpg';
 
 interface ErrorBoundryProps {
-  error: any,
-  children: any,
-  dataError: Function
+  error: boolean;
+  children: any;
+  dataError: typeof dataError;
 }
 
 class ErrorBoundry extends Component<ErrorBoundryProps> {
@@ -23,7 +25,7 @@ class ErrorBoundry extends Component<ErrorBoundryProps> {
         <div className="container my-5">
           <div className="col-md mx-auto text-center mt-5">
             <h3 className="my-5">Something going terribly wrong!</h3>
-            <img className="img-fluid" src={image} alt="Thanos"/>
+            <img className="img-fluid" src={image} alt="Thanos" />
           </div>
         </div>
       );
@@ -33,14 +35,14 @@ class ErrorBoundry extends Component<ErrorBoundryProps> {
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: StoreState) => {
   return {
-    error: state.error
+    error: state.dataError,
   };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({dataError}, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return bindActionCreators({ dataError }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ErrorBoundry);

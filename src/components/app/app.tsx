@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 
 import Navbar from '../navbar/navbar';
 import HomePage from '../home-page/home-page';
@@ -11,7 +16,7 @@ import Footer from '../footer/footer';
 import ErrorBoundry from '../error-boundry/error-boundry';
 
 const App = () => {
-  return  (
+  return (
     <ErrorBoundry>
       <Router>
         <div className="marveldb-app">
@@ -36,12 +41,3 @@ const App = () => {
 };
 
 export default App;
-
-/*
- <Route path="/" component={HomePage} exact />
-  <Route path="/characters" component={CharactersPage} />
-  <Route path="/comics" component={ComicsPage} />
-  <Route path="/events" component={EventsPage} />
-  <Route path="/series" component={SeriesPage} />
-  <Redirect to="/" />
-*/

@@ -2,25 +2,38 @@ import { combineReducers } from 'redux';
 
 import { Item } from '../types';
 
+import {
+  DataLoadedAction,
+  DataRequestedAction,
+  DataErrorAction,
+  ListItemSelectedAction,
+  ItemLoadedAction,
+  ItemRequestedAction,
+  SelectedItemDefaultAction,
+} from '../actions';
+
 export interface StoreState {
-  itemsListData: Item[],
-  itemsListDataLoading: boolean,
-  dataError: boolean,
-  selectedItemId: number | null,
-  itemDetails: any | null,
-  itemDetailsLoading: boolean
+  itemsListData: Item[];
+  itemsListDataLoading: boolean;
+  dataError: boolean;
+  selectedItemId: number | null;
+  selectedItemDetailsData: Item | null;
+  itemDetailsDataLoading: boolean;
 }
 
-const itemsListDataReducer = (state: Item[] = [], action: any) => {
+const itemsListDataReducer = (state: Item[] = [], action: DataLoadedAction) => {
   switch (action.type) {
     case 'FETCH_ITEM_LIST_DATA_SUCCESS':
       return action.payload;
-    default: 
+    default:
       return state;
-  } 
+  }
 };
 
-const itemsListDataLoadingReducer = (state: boolean = false, action: any) => {
+const itemsListDataLoadingReducer = (
+  state: boolean = false,
+  action: DataRequestedAction | DataLoadedAction
+) => {
   switch (action.type) {
     case 'FETCH_ITEM_LIST_DATA_REQUEST':
       return true;
@@ -31,8 +44,10 @@ const itemsListDataLoadingReducer = (state: boolean = false, action: any) => {
   }
 };
 
-
-const selectedItemIdReducer = (state: number | null = null, action: any) => {
+const selectedItemIdReducer = (
+  state: number | null = null,
+  action: ListItemSelectedAction | SelectedItemDefaultAction
+) => {
   switch (action.type) {
     case 'LIST_ITEM_SELECTED':
       return action.payload;
@@ -43,7 +58,10 @@ const selectedItemIdReducer = (state: number | null = null, action: any) => {
   }
 };
 
-const selectedItemDetailsDataReducer = (state: any | null = null, action: any) => {
+const selectedItemDetailsDataReducer = (
+  state: Item | null = null,
+  action: ItemLoadedAction | SelectedItemDefaultAction
+) => {
   switch (action.type) {
     case 'FETCH_ITEM_DETAILS_SUCCESS':
       return action.payload;
@@ -54,7 +72,10 @@ const selectedItemDetailsDataReducer = (state: any | null = null, action: any) =
   }
 };
 
-const itemDetailsDataLoadingReducer = (state: boolean = false, action: any) => {
+const itemDetailsDataLoadingReducer = (
+  state: boolean = false,
+  action: ItemRequestedAction | ItemLoadedAction
+) => {
   switch (action.type) {
     case 'FETCH_ITEM_DETAILS_REQUEST':
       return true;
@@ -65,7 +86,15 @@ const itemDetailsDataLoadingReducer = (state: boolean = false, action: any) => {
   }
 };
 
-const dataErrorReducer = (state: boolean = false, action: any) => {
+const dataErrorReducer = (
+  state: boolean = false,
+  action:
+    | DataErrorAction
+    | DataLoadedAction
+    | DataRequestedAction
+    | ItemLoadedAction
+    | ItemRequestedAction
+) => {
   switch (action.type) {
     case 'FETCH_DATA_FAILURE':
       return true;
@@ -82,11 +111,11 @@ const dataErrorReducer = (state: boolean = false, action: any) => {
   }
 };
 
-export default combineReducers({
+export default combineReducers<StoreState>({
   itemsListData: itemsListDataReducer,
   itemsListDataLoading: itemsListDataLoadingReducer,
   selectedItemId: selectedItemIdReducer,
   selectedItemDetailsData: selectedItemDetailsDataReducer,
   itemDetailsDataLoading: itemDetailsDataLoadingReducer,
-  dataError: dataErrorReducer
+  dataError: dataErrorReducer,
 });

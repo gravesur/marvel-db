@@ -3,7 +3,7 @@ import React from 'react';
 import './spinner.scss';
 
 const Spinner = () => {
-  return(
+  return (
     <div className="row mb-5">
       <div className="col-md-6 m-auto">
         <div className="ml-5">

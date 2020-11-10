@@ -9,12 +9,12 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
-            <p>&copy; 2019 Mortek, Inc.
-              <a href="http://marvel.com" className="link text-white ml-3" >
+            <p>
+              &copy; 2019 Mortek, Inc.
+              <a href="http://marvel.com" className="link text-white ml-3">
                 Data provided by Marvel. © 2019 MARVEL
-              </a> 
-
-              <Link to="#" className="link text-white ml-3" >
+              </a>
+              <Link to="#" className="link text-white ml-3">
                 Conditions
               </Link>
             </p>
